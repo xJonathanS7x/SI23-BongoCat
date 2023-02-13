@@ -1,6 +1,0 @@
-Hola!, 
-
-Pues veo que estuvieron arreglando el ejercicio durante la clase. Me alegra ver que ya aprendieron a usar git (:
-Con respecto a las operaciones de matrices solo recuerden que np.multiply y el operador * hacen la misma operación y es el producto punto a punto (hadamard).
-Por otro lado np.dot(a,b) es el producto punto y el resultado siempre tiene que ser un número.
-Finalmente, np.matmul o el operador @ o np.dot(A,B) (aplicado a matrices) realiza una multiplicación de matrices.
