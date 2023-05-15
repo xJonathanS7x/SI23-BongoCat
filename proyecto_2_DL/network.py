@@ -12,9 +12,10 @@ class Network(nn.Module):
         self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
         # TODO: Calcular dimension de salida
-        out_dim = ...
+        out_dim =
 
         # TODO: Define las capas de tu red
+        self.conv1 = nn.Conv2d(in_channels=1, out_channels=32, kernel_size=3, stride=1, padding=1)
 
         self.to(self.device)
  
@@ -39,7 +40,7 @@ class Network(nn.Module):
         '''
         models_path = file_path / 'models' / model_name
         # TODO: Guarda los pesos de tu red neuronal en el path especificado
-        torch.save( ... )
+        torch.save(self.state_dict(), models_path)
 
     def load_model(self, model_name: str):
         '''
