@@ -32,9 +32,10 @@ def validation_step(val_loader, net, cost_function):
         batch_labels = batch_labels.to(device)
         with torch.inference_mode():
             # TODO: realiza un forward pass, calcula el loss y acumula el costo
-            ...
+
+            
     # TODO: Regresa el costo promedio por minibatch
-    return ...
+    return
 
 def train():
     # Hyperparametros
@@ -59,10 +60,10 @@ def train():
                      n_classes = 7)
 
     # TODO: Define la funcion de costo
-    criterion = ...
+    criterion = 
 
     # Define el optimizador
-    optimizer = ...
+    optimizer = optim.Adam(modelo.parameters(), lr=learning_rate)
 
     best_epoch_loss = np.inf
     for epoch in range(n_epochs):
@@ -71,18 +72,19 @@ def train():
             batch_imgs = batch['transformed']
             batch_labels = batch['label']
             # TODO Zero grad, forward pass, backward pass, optimizer step
-            ...
+            optimizer.zero_grad()
+
 
             # TODO acumula el costo
-            ...
+
 
         # TODO Calcula el costo promedio
-        train_loss = ...
+        train_loss = 
         val_loss = validation_step(val_loader, modelo, criterion)
         tqdm.write(f"Epoch: {epoch}, train_loss: {train_loss:.2f}, val_loss: {val_loss:.2f}")
 
         # TODO guarda el modelo si el costo de validación es menor al mejor costo de validación
-        ...
+        
         plotter.on_epoch_end(epoch, train_loss, val_loss)
     plotter.on_train_end()
 
