@@ -24,7 +24,7 @@ class Network(nn.Module):
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         # TODO: Define la propagacion hacia adelante de tu red
-        return logits, proba = 
+        return logits, proba 
 
     def predict(self, x):
         with torch.inference_mode():
