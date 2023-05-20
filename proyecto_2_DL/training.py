@@ -8,7 +8,7 @@ import cv2
 import torch.optim as optim
 import torch
 import torch.nn as nn
-from tqdm import tqdm
+from tqdm import tqdm  #Nano desintala la version que tienes, y con el cmd instalala nuevamente con pip install tqdm
 from dataset import get_loader
 from network import Network
 from plot_losses import PlotLosses
