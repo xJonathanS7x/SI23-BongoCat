@@ -14,8 +14,21 @@ class Network(nn.Module):
         # TODO: Calcular dimension de salida
         out_dim = self.calc_out_dim(input_dim, kernel_size=3, stride=1, padding=1)
 
-        # TODO: Define las capas de tu red
-        
+        # TODO: Define las capas de tu red 
+        self.conv1 = nn.Conv2d(in_channels=1, out_channels=32, kernel_size=3, stride=1, padding=1)
+        self.conv2 = nn.Conv2d(in_channels=32, out_channels=64, kernel_size=3, stride=1, padding=1)
+        self.conv3 = nn.Conv2d(in_channels=64, out_channels=128, kernel_size=3, stride=1, padding=1)
+        self.conv4 = nn.Conv2d(in_channels=128, out_channels=256, kernel_size=3, stride=1, padding=1)
+        self.conv5 = nn.Conv2d(in_channels=256, out_channels=512, kernel_size=3, stride=1, padding=1)
+
+        self.pool = nn.MaxPool2d(kernel_size=2, stride=2)
+
+        self.fc1 = nn.Linear(in_features=512 * out_dim * out_dim, out_features=1024)
+        self.fc2 = nn.Linear(in_features=1024, out_features=512)
+        self.fc3 = nn.Linear(in_features=512, out_features=n_classes)
+
+        self.dropout = nn.Dropout(p=0.5)
+
         self.to(self.device)
  
     def calc_out_dim(self, in_dim, kernel_size, stride=1, padding=0):
@@ -49,3 +62,5 @@ class Network(nn.Module):
         '''
         # TODO: Carga los pesos de tu red neuronal
         models_path = file_path / 'models' / model_name
+        self.load_state_dict(torch.load(models_path, map_location=self.device))
+        self.eval()
