@@ -91,7 +91,7 @@ def train():
         # TODO guarda el modelo si el costo de validación es menor al mejor costo de validación
         if val_loss < best_epoch_loss:
             best_epoch_loss = val_loss
-            torch.save(modelo.state_dict(), "best_model.pth")
+            modelo.save_model("modelo_1.pt")
         
         plotter.on_epoch_end(epoch, train_loss, val_loss)
     plotter.on_train_end()
