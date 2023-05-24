@@ -15,9 +15,8 @@ class Network(nn.Module):
         out_dim = self.calc_out_dim(input_dim, kernel_size=5, stride=1, padding=0)
 
         # TODO: Define las capas de tu red 
-        
 
-        net1 = nn.Sequential(
+        self.net1 = nn.Sequential(
             nn.Conv2d(input_dim, out_channels=32, kernel_size=5),
             nn.ReLU(),
             nn.MaxPool2d(kernel_size=2, stride=2),
@@ -30,7 +29,6 @@ class Network(nn.Module):
             nn.Linear(in_features=1024, out_features=n_classes),
         )
         
-
     def calc_out_dim(self, in_dim, kernel_size, stride=1, padding=0):
         out_dim = math.floor((in_dim - kernel_size + 2*padding)/stride) + 1
         return out_dim
