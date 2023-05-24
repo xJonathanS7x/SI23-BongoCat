@@ -79,7 +79,7 @@ def train():
             loss = criterion(batch_preds, batch_labels)
             loss.backward()
             optimizer.step()
-
+        
             # TODO acumula el costo
             train_loss += loss.item()
 
