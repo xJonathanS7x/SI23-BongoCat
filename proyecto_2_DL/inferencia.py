@@ -9,6 +9,8 @@ from dataset import EMOTIONS_MAP
 import pathlib
 
 file_path = pathlib.Path(__file__).parent.absolute()
+img_labels = ["Enojo", "Felicidad", "Felicidad", "Felicidad", "Felicidad", "Felicidad","Neutral","Neutral","Tristeza","Enojo","Sorpresa","Disgusto","Felicidad","Enojo"]
+correct = 0
 
 def load_img(path):
     assert os.path.isfile(path), f"El archivo {path} no existe"
@@ -17,6 +19,7 @@ def load_img(path):
     tensor_img = val_transforms(img)
     denormalized = unnormalize(tensor_img)
     return img, tensor_img, denormalized
+
 
 def predict(img_title_paths):
     '''
@@ -51,7 +54,15 @@ def predict(img_title_paths):
         cv2.imshow("Predicción - transformed", denormalized)
         cv2.waitKey(0)
 
+        if(pred_label == img_labels[img_title_paths[path]]):
+            global correct
+            correct += 1
+
+    # Imprimir el accuracy 
+    accuracy = correct / len(img_title_paths) * 100
+    print(f"Accuracy: {accuracy}%")
+
 if __name__=="__main__":
     # Direcciones relativas a este archivo
-    img_paths = ["./test_imgs/happy.png"]
+    img_paths = ["./test_imgs/hacegaba.jpg", "./test_imgs/happy.png", "./test_imgs/happyA.png", "./test_imgs/happyz.jpg", "./test_imgs/hz.jpg", "./test_imgs/jony.png", "./test_imgs/NeutralA.png", "./test_imgs/neutralZ.png", "./test_imgs/sadZ.jpg", "./test_imgs/seriusZ.jpg", "./test_imgs/surprisedZ.jpg", "./test_imgs/zambrano.png", "./test_imgs/zambri.jpg", "./test_imgs/angryZ.jpg"]
     predict(img_paths)

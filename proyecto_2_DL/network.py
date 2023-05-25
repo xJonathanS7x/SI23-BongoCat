@@ -40,13 +40,12 @@ class Network(nn.Module):
         x = F.relu(self.conv3(x))
         x = F.max_pool2d(x, kernel_size=2, stride=2)
 
-
         x = torch.flatten(x, 1)
         x = F.relu(self.fc1(x))
         x = F.dropout(x, p=0.5, training=self.training)
         x = F.relu(self.fc2(x))
         x = F.dropout(x, p=0.5, training=self.training)
-        logits = self.fc3(x)
+        logits = F.softmax(self.fc3(x), dim=-1)
         
         return logits
 
