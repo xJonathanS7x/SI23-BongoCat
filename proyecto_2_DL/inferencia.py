@@ -9,7 +9,7 @@ from dataset import EMOTIONS_MAP
 import pathlib
 
 file_path = pathlib.Path(__file__).parent.absolute()
-img_labels = ["Enojo", "Felicidad", "Felicidad", "Felicidad", "Felicidad", "Felicidad","Neutral","Neutral","Tristeza","Enojo","Sorpresa","Disgusto","Felicidad","Enojo"]
+img_labels = ["Enojo", "Alegria", "Alegria", "Alegria", "Alegria", "Alegria","Neutral","Neutral","Tristeza","Enojo","Sorpresa","Disgusto","Alegria","Enojo"]
 correct = 0
 
 def load_img(path):
@@ -54,7 +54,7 @@ def predict(img_title_paths):
         cv2.imshow("Predicción - transformed", denormalized)
         cv2.waitKey(0)
 
-        if(pred_label == img_labels[img_title_paths[path]]):
+        if(pred_label == img_labels[img_title_paths.index(path)]):
             global correct
             correct += 1
 
