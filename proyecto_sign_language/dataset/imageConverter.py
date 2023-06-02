@@ -9,7 +9,7 @@ def createFileList(myDir, format='.jpg'):
     print(myDir)
     labels = []
     names = []
-    keywords = {"t" : "1",} # keys and values to be changed as needed
+    keywords = {"i" : "1",} # keys and values to be changed as needed
     for root, dirs, files in os.walk(myDir, topdown=True):
             for name in files:
                 if name.endswith(format):
@@ -24,7 +24,7 @@ def createFileList(myDir, format='.jpg'):
     return fileList, labels, names
 
 # load the original image
-myFileList, labels, names  = createFileList('/SI23-BONGOCAT/proyecto_sign_language/team_images')
+myFileList, labels, names  = createFileList('C:/Users/xjont/OneDrive/Documentos/CETYS/6TO SEMESTRE/SISTEMAS INTELIGENTES/REPOSITORY/SI23-BongoCat/proyecto_sign_language/dataset/team_images')
 i = 0
 for file in myFileList:
     print(file)
