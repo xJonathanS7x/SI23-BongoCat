@@ -146,3 +146,5 @@ proyecto_final/traffic_sign_recognition/data/*.csv
 proyecto_final/traffic_sign_recognition/models/
 proyecto_final/traffic_sign_recognition/sol/data
 proyecto_final/traffic_sign_recognition/sol/models
+proyecto_sign_language/dataset/sign_mnist_train/*.csv
+proyecto_sign_language/dataset/sign_mnist_test/*.csv
