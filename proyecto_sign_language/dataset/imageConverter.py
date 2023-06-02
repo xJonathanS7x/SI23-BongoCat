@@ -24,7 +24,7 @@ def createFileList(myDir, format='.jpg'):
     return fileList, labels, names
 
 # load the original image
-myFileList, labels, names  = createFileList('/workspaces/BongoCat_Test/team_images')
+myFileList, labels, names  = createFileList('/SI23-BONGOCAT/proyecto_sign_language/team_images')
 i = 0
 for file in myFileList:
     print(file)
